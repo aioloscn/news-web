@@ -244,15 +244,13 @@
 					}
 				})
 				.then(res => {
-					console.log(JSON.stringify(res.data));
-
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						var grid = res.data.data;
-						var userList = grid.rows;
+						var userList = grid.records;
 						me.userList = userList;
 
-						var maxPage = grid.total; // 获得总页数
-						var total = grid.records; // 获得总记录数
+						var maxPage = grid.pages; // 获得总页数
+						var total = grid.total; // 获得总记录数
 
 						this.maxPage = maxPage;
 						this.total = total;

@@ -192,7 +192,7 @@
                     .then(res => {
                         console.log(JSON.stringify(res.data));
 
-                        if (res.data.status == 200) {
+                        if (res.data.code == 200) {
                             var grid = res.data.data;
                             var fansList = grid.rows;
                             me.fansList = fansList;

@@ -217,7 +217,7 @@
 				.then(res => {
 					console.log(JSON.stringify(res.data));
 
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						me.queryAllArticleList(me.page, me.pageSize, me.articleStatusType);
 					} else {
 						alert(res.data.msg);
@@ -276,7 +276,7 @@
 				.then(res => {
 					console.log(JSON.stringify(res.data));
 
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						var grid = res.data.data;
 						var articleList = grid.rows;
 						me.articleList = articleList;

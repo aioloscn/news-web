@@ -202,7 +202,7 @@
 				.then(res => {
 					// console.log(JSON.stringify(res.data));
 
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						var userInfo = res.data.data;
 						console.log(userInfo);
 						this.userInfo = userInfo;
@@ -240,7 +240,7 @@
 				.then(res => {
 					console.log(JSON.stringify(res.data));
 
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						layer.msg("操作成功！");
 						window.location = window.location;
 					} else {

@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/categoryMng.css">
 	<link rel="stylesheet" href="libs/color-picker/css/jcolor.min.css">
+	<link rel="stylesheet" href="../layui/layer.css">
 
 	<style type="text/css">
 	</style>
@@ -145,6 +146,7 @@
 <script src="libs/layDate-v5.0.9/laydate/laydate.js"></script>
 <script src="libs/color-picker/js/jcolor.min.js"></script>
 <script src="js/app.js"></script>
+<script src="../layui/layer.js"></script>
 
 <script type="text/javascript">
 
@@ -197,7 +199,7 @@
 				var aid = app.getCookie("aid");
 				var adminServerUrl = app.adminServerUrl;
 				axios.defaults.withCredentials = true;
-				axios.post(adminServerUrl + '/categoryMng/getCatList',
+				axios.get(adminServerUrl + '/categoryMng/getCatList',
 					{},
 					{
 						headers: {
@@ -206,13 +208,11 @@
 						}
 					})
 				.then(res => {
-					// console.log(JSON.stringify(res.data));
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						var catList = res.data.data;
 						me.catList = catList;
-						// console.log(catList);
 					} else {
-						alert(res.data.msg);
+						layer.msg(res.data.msg);
 					}
 				});
 			},
@@ -225,7 +225,7 @@
 				var me = this;
 
 				if (app.isEmpty(me.category.name)) {
-					alert("分类名称不能为空");
+					layer.msg("分类名称不能为空");
 					return false;
 				}
 
@@ -257,14 +257,14 @@
 				.then(res => {
 					console.log(JSON.stringify(res.data));
 
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						// 清空数据
 						this.clearData();
 
 						// 添加完毕以后重新查询分类列表
 						this.getCatList();
 					} else {
-						alert(res.data.msg);
+						layer.msg(res.data.msg);
 					}
 				});
 				// console.log(me.category);

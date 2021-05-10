@@ -244,7 +244,7 @@
 				.then(res => {
 					console.log(JSON.stringify(res.data));
 
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						me.queryCommentList(1, 10);
 					} else {
 						alert(res.data.msg);
@@ -274,7 +274,7 @@
 				.then(res => {
 					console.log(JSON.stringify(res.data));
 
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						var grid = res.data.data;
 						var commentList = grid.rows;
 						me.commentList = commentList;

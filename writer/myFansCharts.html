@@ -209,7 +209,7 @@
 				.then(res => {
 					console.log(JSON.stringify(res.data));
 
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						var list = res.data.data;
 
 						// 初始化图表
@@ -239,7 +239,7 @@
 				.then(res => {
 					console.log(JSON.stringify(res.data));
 
-					if (res.data.status == 200) {
+					if (res.data.code == 200) {
 						var manCounts = res.data.data.manCounts;
 						var womanCounts = res.data.data.womanCounts;
 						

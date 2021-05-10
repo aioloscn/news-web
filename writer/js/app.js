@@ -3,11 +3,11 @@ document.write("<script type='text/text/javascript' src='../../layui/layer.js'><
 window.app = {
 
 //  dev
-    portalIndexUrl: "http://www.aiolos.com:8848/news/portal/index.html",           // 门户首页地址
-    writerLoginUrl: "http://www.aiolos.com:8848/news/writer/passport.html",      // 登录页面
-    writerIndexUrl: "http://www.aiolos.com:8848/news/writer/contentMng.html",      // 作家中心首页
-    writerInfoUrl: "http://www.aiolos.com:8848/news/writer/accountInfo.html",     // 用户信息完善页面
-    adminCenterUrl: "http://www.aiolos.com:8848/news/admin/contentReview.html",     // 运营管理平台主页
+    portalIndexUrl: "http://www.aiolos.com:8848/news-web/portal/index.html",           // 门户首页地址
+    writerLoginUrl: "http://www.aiolos.com:8848/news-web/writer/passport.html",      // 登录页面
+    writerIndexUrl: "http://www.aiolos.com:8848/news-web/writer/contentMng.html",      // 作家中心首页
+    writerInfoUrl: "http://www.aiolos.com:8848/news-web/writer/accountInfo.html",     // 用户信息完善页面
+    adminCenterUrl: "http://www.aiolos.com:8848/news-web/admin/contentReview.html",     // 运营管理平台主页
     
     userServerUrl: "http://www.aiolos.com:8003/news/user",        // 用户服务后端接口地址
     fsServerUrl: "http://www.aiolos.com:8004/news/files",         // 文件服务后端接口地址
@@ -17,11 +17,11 @@ window.app = {
     cookieDomain: ".aiolos.com",  
 	
 //  prod
-	// portalIndexUrl: "http://www.aiolosxhx.com/news/portal/index.html",           // 门户首页地址
- //    writerLoginUrl: "http://www.aiolosxhx.com/news/writer/passport.html",      // 登录页面
- //    writerIndexUrl: "http://www.aiolosxhx.com/news/writer/contentMng.html",      // 作家中心首页
- //    writerInfoUrl: "http://www.aiolosxhx.com/news/writer/accountInfo.html",     // 用户信息完善页面
- //    adminCenterUrl: "http://www.aiolosxhx.com/news/admin/contentReview.html",     // 运营管理平台主页
+	// portalIndexUrl: "http://www.aiolosxhx.com/news-web/portal/index.html",           // 门户首页地址
+ //    writerLoginUrl: "http://www.aiolosxhx.com/news-web/writer/passport.html",      // 登录页面
+ //    writerIndexUrl: "http://www.aiolosxhx.com/news-web/writer/contentMng.html",      // 作家中心首页
+ //    writerInfoUrl: "http://www.aiolosxhx.com/news-web/writer/accountInfo.html",     // 用户信息完善页面
+ //    adminCenterUrl: "http://www.aiolosxhx.com/news-web/admin/contentReview.html",     // 运营管理平台主页
     
  //    userServerUrl: "https://www.aiolosxhx.com/news/user",        // 用户服务后端接口地址
  //    fsServerUrl: "https://www.aiolosxhx.com/news/files",         // 文件服务后端接口地址

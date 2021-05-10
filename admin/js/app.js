@@ -1,30 +1,30 @@
 window.app = {
 
 //  dev
-    portalIndexUrl: "http://www.aiolos.com:8848/news/portal/index.html",           // 门户首页地址
-    writerLoginUrl: "http://www.aiolos.com:8848/news/writer/passport.html",      // 登录页面
-    writerIndexUrl: "http://www.aiolos.com:8848/news/writer/contentMng.html",      // 作家中心首页
-    writerInfoUrl: "http://www.aiolos.com:8848/news/writer/accountInfo.html",     // 用户信息完善页面
-    adminCenterUrl: "http://www.aiolos.com:8848/news/admin/contentReview.html",     // 运营管理平台主页
-	adminLoginUrl: "http://www.aiolos.com:8848/news/admin/login.html",        // admin后台登录页面
-	adminIndexUrl: "http://www.aiolos.com:8848/news/admin/userList.html",        // admin后台默认页面
+    portalIndexUrl: "http://www.aiolos.com:8848/news-web/portal/index.html",           // 门户首页地址
+    writerLoginUrl: "http://www.aiolos.com:8848/news-web/writer/passport.html",      // 登录页面
+    writerIndexUrl: "http://www.aiolos.com:8848/news-web/writer/contentMng.html",      // 作家中心首页
+    writerInfoUrl: "http://www.aiolos.com:8848/news-web/writer/accountInfo.html",     // 用户信息完善页面
+    adminCenterUrl: "http://www.aiolos.com:8848/news-web/admin/contentReview.html",     // 运营管理平台主页
+	adminLoginUrl: "http://www.aiolos.com:8848/news-web/admin/login.html",        // admin后台登录页面
+	adminIndexUrl: "http://www.aiolos.com:8848/news-web/admin/userList.html",        // admin后台默认页面
 
 // 换成zuul动态路由后后端跨域过滤失效
-    userServerUrl: "http://www.aiolos.com:8003/news/user",        // 用户服务后端接口地址
-    fsServerUrl: "http://www.aiolos.com:8004/news/files",         // 文件服务后端接口地址
-    adminServerUrl: "http://www.aiolos.com:8005/news/admin",      // 运营管理服务后端接口地址
-    articleServerUrl: "http://www.aiolos.com:8001/news/article",      // 文章服务后端接口地址
+    userServerUrl: "http://www.aiolos.com:7070/api/news-user/news/user",        // 用户服务后端接口地址
+    fsServerUrl: "http://www.aiolos.com:7070/api/news-files/news/files",         // 文件服务后端接口地址
+    adminServerUrl: "http://www.aiolos.com:7070/api/news-service-admin/news/admin",      // 运营管理服务后端接口地址
+    articleServerUrl: "http://www.aiolos.com:7070/api/news-service-article/news/article",      // 文章服务后端接口地址
 	
 	cookieDomain: ".aiolos.com",
 	
 //  prod
-	// portalIndexUrl: "http://www.aiolosxhx.com/news/portal/index.html",           // 门户首页地址
- //    writerLoginUrl: "http://www.aiolosxhx.com/news/writer/passport.html",      // 登录页面
- //    writerIndexUrl: "http://www.aiolosxhx.com/news/writer/contentMng.html",      // 作家中心首页
- //    writerInfoUrl: "http://www.aiolosxhx.com/news/writer/accountInfo.html",     // 用户信息完善页面
- //    adminCenterUrl: "http://www.aiolosxhx.com/news/admin/contentReview.html",     // 运营管理平台主页
-	// adminLoginUrl: "http://www.aiolosxhx.com/news/admin/login.html",        // admin后台登录页面
-	// adminIndexUrl: "http://www.aiolosxhx.com/news/admin/userList.html",        // admin后台默认页面
+	// portalIndexUrl: "http://www.aiolosxhx.com/news-web/portal/index.html",           // 门户首页地址
+ //    writerLoginUrl: "http://www.aiolosxhx.com/news-web/writer/passport.html",      // 登录页面
+ //    writerIndexUrl: "http://www.aiolosxhx.com/news-web/writer/contentMng.html",      // 作家中心首页
+ //    writerInfoUrl: "http://www.aiolosxhx.com/news-web/writer/accountInfo.html",     // 用户信息完善页面
+ //    adminCenterUrl: "http://www.aiolosxhx.com/news-web/admin/contentReview.html",     // 运营管理平台主页
+	// adminLoginUrl: "http://www.aiolosxhx.com/news-web/admin/login.html",        // admin后台登录页面
+	// adminIndexUrl: "http://www.aiolosxhx.com/news-web/admin/userList.html",        // admin后台默认页面
     
  //    userServerUrl: "https://www.aiolosxhx.com/news/user",        // 用户服务后端接口地址
  //    fsServerUrl: "https://www.aiolosxhx.com/news/files",         // 文件服务后端接口地址
@@ -42,7 +42,7 @@ window.app = {
             adminServerUrl + '/admin/adminLogout?adminId=' + aid)
             .then(res => {
                 // debugger
-                if (res.data.status == 200) {
+                if (res.data.code == 200) {
                     window.location = me.adminLoginUrl;
                 } else {
                     console.log(res.data.msg);
@@ -98,7 +98,7 @@ window.app = {
                         })
                     .then(res => {
                         // debugger
-                        if (res.data.status == 200) {
+                        if (res.data.code == 200) {
                             var userInfo = res.data.data;
                             // console.log("app:" + userInfo);
                             // 获得到用户信息后，还需要判断用户的状态，以防管理员对其封号后，状态不会检测
@@ -135,7 +135,7 @@ window.app = {
         axios.post(
                 userServerUrl + '/passport/logout?userId=' + uid)
             .then(res => {
-                if (res.data.status == 200) {
+                if (res.data.code == 200) {
                     // 删除sessionStorage中用户信息
                     me.deleteUserInfo();
                     // 删除用户cookie

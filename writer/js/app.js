@@ -9,10 +9,10 @@ window.app = {
     writerInfoUrl: "http://www.aiolos.com:8848/news-web/writer/accountInfo.html",     // 用户信息完善页面
     adminCenterUrl: "http://www.aiolos.com:8848/news-web/admin/contentReview.html",     // 运营管理平台主页
     
-    userServerUrl: "http://www.aiolos.com:8003/news/user",        // 用户服务后端接口地址
-    fsServerUrl: "http://www.aiolos.com:8004/news/files",         // 文件服务后端接口地址
-    adminServerUrl: "http://www.aiolos.com:8005/news/admin",      // 运营管理服务后端接口地址
-    articleServerUrl: "http://www.aiolos.com:8001/news/article",      // 文章服务后端接口地址
+    userServerUrl: "http://www.aiolos.com:7070/api/news-user/news/user",        // 用户服务后端接口地址
+    fsServerUrl: "http://www.aiolos.com:7070/api/news-files/news/files",         // 文件服务后端接口地址
+    adminServerUrl: "http://www.aiolos.com:7070/api/news-service-admin/news/admin",      // 运营管理服务后端接口地址
+    articleServerUrl: "http://www.aiolos.com:7070/api/news-service-article/news/article",      // 文章服务后端接口地址
 
     cookieDomain: ".aiolos.com",  
 	

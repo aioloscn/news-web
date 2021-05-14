@@ -69,9 +69,9 @@
                     <div class="writer-name">{{writerInfo.nickname}}</div>
                     <!-- <div class="writer-name">风间影月</div> -->
                     <button class="pay-attention" @click="beYourFan(writerInfo.id, userInfo.id)" 
-                            v-show="!isFollowWriter && userInfo != null && userInfo != undefined">关注</button>
+                            v-show="!isFollowWriter && userInfo != null && userInfo != undefined && userInfo != writerInfo">关注</button>
                     <button class="already-pay-attention" @click="notYourFan(writerInfo.id, userInfo.id)" 
-                            v-show="isFollowWriter && userInfo != null && userInfo != undefined">已关注</button>
+                            v-show="isFollowWriter && userInfo != null && userInfo != undefined && userInfo != writerInfo">已关注</button>
                 </div>
             </div>
 

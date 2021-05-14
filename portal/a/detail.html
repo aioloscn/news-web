@@ -5,17 +5,17 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
-	<link rel="stylesheet" type="text/css" href="css/app.css" />
-    <link rel="stylesheet" type="text/css" href="css/index/topHeader.css" />
+	<link rel="stylesheet" type="text/css" href="../css/app.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index/topHeader.css" />
     
-    <link rel="stylesheet" type="text/css" href="css/detail/detail.css" />
-    <link rel="stylesheet" type="text/css" href="css/detail/comments.css" />
-    <link rel="stylesheet" type="text/css" href="css/detail/middleBar.css" />
-    <link rel="stylesheet" type="text/css" href="./libs/JqueryShare/share.min.css" />
-	<link rel="stylesheet" type="text/css" href="../layui/layer.css" />
+    <link rel="stylesheet" type="text/css" href="../css/detail/detail.css" />
+    <link rel="stylesheet" type="text/css" href="../css/detail/comments.css" />
+    <link rel="stylesheet" type="text/css" href="../css/detail/middleBar.css" />
+    <link rel="stylesheet" type="text/css" href="../libs/JqueryShare/share.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../layui/layer.css" />
 
     <!-- 分页css -->
-	<link href="libs/vuePaging/VuePaging/zpageNav.css" rel="stylesheet" />
+	<link href="../libs/vuePaging/VuePaging/zpageNav.css" rel="stylesheet" />
 
     <style type="text/css">
         .social-share .social-share-icon {
@@ -25,7 +25,7 @@
         }
 	</style>
 
-	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
+	<link rel="shortcut icon" href="../img/mu-toutiao.ico" />
 
 	<title id="pageTitle">[此处显示文章title]</title>
 </head>
@@ -37,7 +37,7 @@
             <div class="white-bar">
                 <div class="left-part">
                     <div class="logo-wrapper" @click="goIndex()">
-                        <img src="./img/imooc-news-logo.png" class="big-logo"/>
+                        <img src="../img/imooc-news-logo.png" class="big-logo"/>
                     </div>
 
                     <div class="menus">
@@ -101,26 +101,24 @@
                     <div class="back-line"></div>
 
                     <div class="social-line" @click="shareWeiBo">
-                        <img src="./img/social/weibo.png" class="social-pic"/>
+                        <img src="../img/social/weibo.png" class="social-pic"/>
                         <span class="social-words">微博</span>
                     </div>
                     <div class="social-line" @click="shareDouBan">
-                        <img src="./img/social/douban.png" class="social-pic"/>
+                        <img src="../img/social/douban.png" class="social-pic"/>
                         <span class="social-words" >豆瓣</span>
                     </div>
                     <div class="social-line" @click="shareQQ">
-                        <img src="./img/social/qq.png" class="social-pic"/>
+                        <img src="../img/social/qq.png" class="social-pic"/>
                         <span class="social-words">QQ</span>
                     </div>
                     <div class="social-line" @click="shareQZone">
-                        <img src="./img/social/qzone.png" class="social-pic"/>
+                        <img src="../img/social/qzone.png" class="social-pic"/>
                         <span class="social-words">QQ空间</span>
                     </div>
                     <div class="social-line" @click="shareWeChat">
                         <div class="social-share" data-wechat-qrcode-title="请打开微信扫一扫"
                             data-disabled="google,twitter,facebook,douban,qzone,qq,weibo,tencent,linkedin,diandian" >
-                            <!-- <img src="./img/social/wechat.png" class="social-pic"/> -->
-                            <!-- <span class="social-words">微信</span> -->
                         </div>
                         <span class="social-words">微信</span>
                     </div>
@@ -164,7 +162,7 @@
 
                             <div class="all-comments-list" v-for="(comment,index) in commentList" :key="index">
                                 <div class="single-comment-wrapper">
-                                    <img src="./img/face1.png" class="user-face"/>
+                                    <img src="../img/face1.png" class="user-face"/>
                                 </div>
 
                                 <div class="comment-info-wrapper">
@@ -189,8 +187,7 @@
                                     </div>
                                     
                                     <div class="reply-wrapper" @click="doReply(comment.commentId)">
-                                        <img class="icon-reply"/> 
-                                        <!-- src="./img/icon-reply.png"  -->
+                                        <img class="icon-reply"/>
                                         <div class="reply-words">回复</div>
                                     </div>
 
@@ -218,19 +215,18 @@
             </div>
         </div>
     </div>
-    <script src="libs/vue.min.js"></script>
-    <script src="libs/axios.min.js"></script>
-    <!-- <script src="libs/jquery-1.7.2.min.js"></script> -->
+    <script src="../libs/vue.min.js"></script>
+    <script src="../libs/axios.min.js"></script>
 
-    <script src="libs/jquery.min.js"></script>
+    <script src="../libs/jquery.min.js"></script>
     <!-- 中文汉化 -->
-    <script src="libs/summernote/lang/summernote-zh-CN.js"></script>
+    <script src="../libs/summernote/lang/summernote-zh-CN.js"></script>
     <!-- vue 分页 -->
-    <script src="libs/vuePaging/VuePaging/zpageNav.js"></script>
-    <script src="js/app.js"></script>
-    <script type="text/javascript" src="./libs/JqueryShare/jquery.share.min.js"></script> 
-    <script src="libs/moment-with-locales.min.js"></script>
-	<script src="../layui/layer.js"></script>
+    <script src="../libs/vuePaging/VuePaging/zpageNav.js"></script>
+    <script src="../js/app.js"></script>
+    <script type="text/javascript" src="../libs/JqueryShare/jquery.share.min.js"></script> 
+    <script src="../libs/moment-with-locales.min.js"></script>
+	<script src="../../layui/layer.js"></script>
 
     <script type="text/javascript">
 

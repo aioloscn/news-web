@@ -400,8 +400,11 @@
 					if (res.data.code == 200) {
 						// var userAccountInfo = res.data.data;
 						// console.log(userAccountInfo);
-						layer.msg("文章创建成功，待审核通过后将在首页展示~");
-						window.location = app.writerIndexUrl;
+						layer.msg("文章创建成功，待审核通过后将在首页展示~", {
+							time: 2000
+						}, function() {
+							window.location = app.writerIndexUrl;
+						});
 					} else {
 						layer.msg(res.data.msg);
 					}

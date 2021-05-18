@@ -187,6 +187,15 @@ window.app = {
         var r = window.location.search.substr(1).match(reg);            //匹配目标参数
         if (r != null) return decodeURI(r[2]); return null;             //返回参数值
     },
+	
+	getPageName() {
+		var thisPath = window.location.pathname;
+		var pathArray = thisPath.split("/");
+		var pageNameSuffix = pathArray[pathArray.length - 1];
+		var thisPage = pageNameSuffix.split(".")[0];
+		// console.log(thisPage);
+		return thisPage;
+	},
 
     // 时间格式化时间为：多少分钟前、多少天前
     // time 2020-09-10 20:20:20

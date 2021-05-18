@@ -27,7 +27,7 @@
 
 	<link rel="shortcut icon" href="../img/mu-toutiao.ico" />
 
-	<title id="pageTitle">[此处显示文章title]</title>
+	<title id="pageTitle">测试</title>
 </head>
 
 <body>
@@ -66,11 +66,11 @@
         <!-- 中间主体部分 -->
         <div class="container">
             
-            <div class="big-title" v-bind:class="{'big-title-bottom': (articleDetail.readCounts == '' || articleDetail.readCounts == null)}">
-                {{articleDetail.title}}
+            <div class="big-title">
+                测试
             </div>
-            <div class="read-counts" v-show="articleDetail.readCounts != '' && articleDetail.readCounts != null">
-                阅读量：{{readCounts}}
+            <div class="read-counts">
+                阅读量：0
             </div>
 
             <div class="detail-really">
@@ -79,16 +79,16 @@
                 <div class="left-social">
 
                     <div class="date-title">
-                        <span class="year">{{formatDataYear(articleDetail.publishTime)}}</span>
+                        <span class="year">2021</span>
                     </div>
                     <div class="back-year-line"></div>
 
-                    <div class="date-md">{{formatDataMonthDay(articleDetail.publishTime)}}</div>
+                    <div class="date-md">05/18</div>
 
-                    <div class="date-times">{{formatDataTime(articleDetail.publishTime)}}</div>
+                    <div class="date-times">21:06:09</div>
 
-                    <div class="writer-name" @click="showWriter(articleDetail.publishUserId)">
-                        {{articleDetail.publishUserName}}
+                    <div class="writer-name" @click="showWriter('1316846502299172864')">
+                        Aiolos
                     </div>
 
                     <div class="imooc-words">
@@ -128,7 +128,8 @@
                 <div class="container-middle">
                     <div class="article-wrapper">
 
-                        <div class="content" v-html="articleDetail.content">
+                        <div class="content">
+                            <p>测试</p>
                         </div>
 
                         <div class="declare">
@@ -238,7 +239,6 @@
 
                 articleId: "",
                 articleDetail: {},
-				readCounts: 0,	// 文章阅读数
 
                 // 文章分类列表
                 catList: [],
@@ -258,14 +258,11 @@
                 // 通过cookie判断用户是否登录
                 app.judgeUserLoginStatus(me);
 
-                // 查询文章详情
-                var articleId = app.getUrlParam("articleId");
-                // console.log(articleId);
+                // 根据当前页面的名称，定义为文章的articleId，作为静态化页面名称
+                var thisPage = app.getPageName();
+                var articleId = thisPage;
                 this.articleId = articleId;
-                this.getArticleDetail(articleId);
 
-				// 获得文章阅读数
-				this.getArticleReadCounts(articleId);
                 // 获得分类
                 this.getAllCategory();
                 // 文章阅读数累加
@@ -314,20 +311,9 @@
                         }
                     });
                 },
-				// 获得文章阅读数
-				getArticleReadCounts(articleId) {
-				    var me = this;
-				
-				    var articleServerUrl = app.articleServerUrl;
-				    axios.defaults.withCredentials = true;
-				    axios.get(articleServerUrl + "/portal/readCounts?articleId=" + articleId)
-				    .then(res => {
-				        this.readCounts = res.data
-				    });
-				},
                 // 跳转作家页面
                 showWriter(writerId) {
-                    window.open("writer.html?writerId=" + writerId);
+                    window.open("../writer.html?writerId=" + writerId);
                 },
                 // 查询文章详情
                 getArticleDetail(articleId) {

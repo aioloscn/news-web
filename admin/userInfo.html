@@ -211,6 +211,9 @@
 					} else {
 						layer.msg(res.data.msg);
 					}
+				})
+				.catch(error => {
+					layer.msg(error.response.data.msg)
 				});
 			},
 			// 冻结用户 

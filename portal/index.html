@@ -71,8 +71,7 @@
 
 						<div class="single-article">
 							<div class="article-title">
-								<!-- TODO: 后期改为静态页面跳转 -->
-								<a :href="'detail.html?articleId='+article.id" target="_blank" class="link-article-title">{{article.title}}</a>
+								<a :href="'a/'+article.id+'.html'" target="_blank" class="link-article-title">{{article.title}}</a>
 							</div>
 							<div class="publisher">
 								<div class="category-tag" :style="{color: getCatTagColor(article.categoryId), borderColor: getCatTagColor(article.categoryId) }">{{getCatName(article.categoryId)}}</div>
@@ -153,14 +152,14 @@
 					<div class="hot-items" v-for="(hotArticle, hotIndex) in hotArticleList" :key="hotIndex">
 						<div class="hot-single" v-show="hotArticle.articleCover != ''">
 							<!-- <div class="hot-img-wrapper" style="background-image: url('./img/cover2.jpg');"></div> -->
-							<a :href="'detail.html?articleId='+hotArticle.id" class="link-hot-title-words" target="_blank">
+							<a :href="'a/'+hotArticle.id+'.html'" class="link-hot-title-words" target="_blank">
 								<div class="hot-img-wrapper" :style="'background-image: url(' + hotArticle.articleCover + ');'">
 									<!-- <img src="img/car.jpeg" class="hot-img"> -->
 								</div>
 							</a>
 						</div>
 						<div>
-							<a :href="'detail.html?articleId='+hotArticle.id" class="link-hot-title-words" target="_blank">
+							<a :href="'a/'+hotArticle.id+'.html'" class="link-hot-title-words" target="_blank">
 								{{hotArticle.title}}
 							</a>
 						</div>

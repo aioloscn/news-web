@@ -189,6 +189,9 @@
 						me.sendCodeValue = "发送验证码("+ times +")";
 						// 倒计时
 						me.doTimer(times);
+					})
+					.catch(error => {
+						layer.msg(error.response.data.msg)
 					});
 					
 				},

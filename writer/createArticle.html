@@ -454,10 +454,10 @@
 								me.coverStyle += "background-position: center center;";
 								me.coverStyle += "background-size: cover;";
 							}
-						} else {
-							layer.msg(res.data.msg);
-							console.log(res.data.msg);
 						}
+					})
+					.catch(error => {
+						layer.msg(error.response.data.msg)
 					});
 			},
 			// 鼠标移动到上传组件上发生css变化

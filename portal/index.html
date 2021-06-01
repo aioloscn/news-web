@@ -44,9 +44,6 @@
 							<!-- menu-selected -->
 							<a href="javascript:void(0);" class="white-header-left" v-bind:class="{'menu-selected': (cat.id==selectedCatId)}" @click="queryByCategory(cat.id)">{{cat.name}}</a>
 						</div>
-						<div class="single-default">
-                            <a href="https://class.imooc.com/sale/javaarchitect" target="_blank" class="white-header-left">架构师</a>
-                        </div>
 					</div>
 				</div>
 
@@ -71,7 +68,7 @@
 
 						<div class="single-article">
 							<div class="article-title">
-								<a :href="'a/'+article.id+'.html'" target="_blank" class="link-article-title">{{article.title}}</a>
+								<a :href="'a/'+article.id+'.html'" target="_blank" class="link-article-title" v-html="article.title"></a>
 							</div>
 							<div class="publisher">
 								<div class="category-tag" :style="{color: getCatTagColor(article.categoryId), borderColor: getCatTagColor(article.categoryId) }">{{getCatName(article.categoryId)}}</div>
@@ -320,7 +317,7 @@
 
 				var articleServerUrl = app.articleServerUrl;
 				axios.defaults.withCredentials = true;
-				axios.get(articleServerUrl + "/portal/list?keyword=" + keyword + 
+				axios.get(articleServerUrl + "/portal/es/list?keyword=" + keyword + 
 															"&category=" + category + 
 															"&page=" + page + 
 															"&pageSize=" + pageSize)

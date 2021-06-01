@@ -17,7 +17,7 @@
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 	<link rel="stylesheet" href="../layui/layer.css" />
 
-	<title id="writerTitle">[作者名称]的个人主页</title>
+	<title id="writerTitle">{{writerInfo.nickname}}的个人主页</title>
 </head>
 
 <body>
@@ -36,10 +36,6 @@
                             <!-- menu-selected -->
                             <a :href="'index.html?catId='+cat.id" class="white-header-left" v-bind:class="{'menu-selected': (cat.id==selectedCatId)}">{{cat.name}}</a>
                         </div>
-                        <div class="single-default">
-                            <a href="https://class.imooc.com/sale/javaarchitect" target="_blank" class="white-header-left">架构师</a>
-                        </div>
-
                     </div>
                 </div>
 
@@ -67,7 +63,6 @@
                         <img :src="writerInfo.face" class="writer-face"/>
                     </div>
                     <div class="writer-name">{{writerInfo.nickname}}</div>
-                    <!-- <div class="writer-name">风间影月</div> -->
                     <button class="pay-attention" @click="beYourFan(writerInfo.id, userInfo.id)" 
                             v-show="!isFollowWriter && userInfo != null && userInfo != undefined && userInfo != writerInfo">关注</button>
                     <button class="already-pay-attention" @click="notYourFan(writerInfo.id, userInfo.id)" 

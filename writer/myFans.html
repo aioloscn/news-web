@@ -100,7 +100,10 @@
 				<div class="all-fans-wrapper">
 
 					<div class="single-fan" v-for="(fan, fanIndex) in fansList" v-key="fanIndex">
-						<img :src="fan.face" class="fan-face"/>
+						<a :href="portalWriterPageUrl+'?writerId='+fan.fanId" target="_blank" class="fan-face"
+							@click="forceUpdateFanInfo(fan.id, fan.fanId)">
+							<img :src="fan.face" class="fan-face"/>
+						</a>
 						<div class="fan-nickname">{{fan.fanNickname}}</div>
 					</div>
 
@@ -153,7 +156,7 @@
 			userInfo: {
 				activeStatus: 0
 			},
-			
+			portalWriterPageUrl: "",
 			fansList: [],
 
 			page: 1, // 分页页数
@@ -166,6 +169,7 @@
 		created() {
 			// 判断用户登录
 			app.judgeUserLoginStatus(this);
+			this.portalWriterPageUrl = app.portalWriterPageUrl;
 
 			// 分页查询我的所有粉丝列表
 			this.queryMyFansList(1, 20);
@@ -217,6 +221,26 @@
 			// 前往首页
 			goIndex() {
 				window.location = app.portalIndexUrl;
+			},
+			// 被动更新粉丝用户信息
+			forceUpdateFanInfo(relationId, fanId) {
+				var me = this;
+				var utoken = app.getCookie("utoken");
+				var uid = app.getCookie("uid");
+
+				var userServerUrl = app.userServerUrl;
+				axios.defaults.withCredentials = true;
+				axios.post(userServerUrl + "/fans/forceUpdateFanInfo?relationId=" + relationId +
+																"&fanId=" + fanId, 
+				{}, 
+				{
+					headers: {
+						'headerUserId': uid,
+						'headerUserToken': utoken
+					}
+				})
+				.then(res => {
+				});
 			}
 		}
 	});

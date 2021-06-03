@@ -4,6 +4,7 @@ window.app = {
 
 //  dev
     portalIndexUrl: "http://www.aiolos.com:8848/news-web/portal/index.html",           // 门户首页地址
+	portalWriterPageUrl: "http://www.aiolos.com:8848/news-web/portal/writer.html",		// 门户作家页地址
     writerLoginUrl: "http://www.aiolos.com:8848/news-web/writer/passport.html",      // 登录页面
     writerIndexUrl: "http://www.aiolos.com:8848/news-web/writer/contentMng.html",      // 作家中心首页
     writerInfoUrl: "http://www.aiolos.com:8848/news-web/writer/accountInfo.html",     // 用户信息完善页面
@@ -17,7 +18,8 @@ window.app = {
     cookieDomain: ".aiolos.com",  
 	
 //  prod
-	// portalIndexUrl: "http://www.aiolosxhx.com/news-web/portal/index.html",           // 门户首页地址
+// 	portalIndexUrl: "http://www.aiolosxhx.com/news-web/portal/index.html",           // 门户首页地址
+//	portalWriterPageUrl: "http://www.aiolosxhx.com/news-web/portal/writer.html",		// 门户作家页地址
  //    writerLoginUrl: "http://www.aiolosxhx.com/news-web/writer/passport.html",      // 登录页面
  //    writerIndexUrl: "http://www.aiolosxhx.com/news-web/writer/contentMng.html",      // 作家中心首页
  //    writerInfoUrl: "http://www.aiolosxhx.com/news-web/writer/accountInfo.html",     // 用户信息完善页面

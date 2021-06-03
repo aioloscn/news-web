@@ -261,6 +261,9 @@
 			},
 			// 转换百分数
 			getPercent(number) {
+				if (isNaN(number)) {
+					return 0;
+				}
 				var value = Number(number * 100).toFixed(2);
 				return value
 			},

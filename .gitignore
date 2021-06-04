@@ -31,3 +31,6 @@ build/
 .vscode/
 
 .DS_Store
+
+portal/a
+!/portal/a/detail.html

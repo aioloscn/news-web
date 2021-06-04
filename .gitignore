@@ -32,5 +32,5 @@ build/
 
 .DS_Store
 
-portal/a
+portal/a/**
 !/portal/a/detail.html

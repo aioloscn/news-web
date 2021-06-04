@@ -318,15 +318,13 @@
                                                                                             "&page=" + page + 
                                                                                             "&pageSize=" + pageSize)
                     .then(res => {
-                        // console.log(JSON.stringify(res.data));
-
                         if (res.data.code == 200) {
                             var grid = res.data.data;
-                            var articleList = grid.rows;
+                            var articleList = grid.records;
                             me.articleList = articleList;
 
-                            var maxPage = grid.total; // 获得总页数
-                            var total = grid.records; // 获得总记录数
+                            var maxPage = grid.pages; // 获得总页数
+                            var total = grid.total; // 获得总记录数
 
                             this.maxPage = maxPage;
                             this.total = total;
@@ -355,8 +353,7 @@
                         console.log(JSON.stringify(res.data));
 
                         if (res.data.code == 200) {
-                            var grid = res.data.data;
-                            var goodArticleList = grid.rows;
+                            var goodArticleList = res.data.data;
                             me.goodArticleList = goodArticleList;
                         } else {
                             layer.msg(res.data.msg);

@@ -72,12 +72,10 @@
 							</div>
 							<div class="publisher">
 								<div class="category-tag" :style="{color: getCatTagColor(article.categoryId), borderColor: getCatTagColor(article.categoryId) }">{{getCatName(article.categoryId)}}</div>
-								<!-- TODO: 这里需要显示用户的昵称以及用户头像 -->
-									<img src="img/face1.png" class="publisher-face" v-if="article.publisherVO == null || article.publisherVO == undefined">
-									<div class="publisher-name" v-if="article.publisherVO == null || article.publisherVO == undefined">&nbsp;&nbsp;{{article.publishUserId}}&nbsp;⋅</div>
-								
-								
-									<img :src="article.publisherVO.face" class="publisher-face" v-if="article.publisherVO != null && article.publisherVO != undefined">
+								<img src="img/face1.png" class="publisher-face" v-if="article.publisherVO == null || article.publisherVO == undefined">
+								<div class="publisher-name" v-if="article.publisherVO == null || article.publisherVO == undefined">&nbsp;&nbsp;{{article.publishUserId}}&nbsp;⋅</div>
+									
+								<img :src="article.publisherVO.face" class="publisher-face" v-if="article.publisherVO != null && article.publisherVO != undefined">
 								<a :href="'writer.html?writerId='+article.publisherVO.id" target="_blank">
 									<div class="publisher-name" v-if="article.publisherVO != null && article.publisherVO != undefined">&nbsp;&nbsp;{{article.publisherVO.nickname}}&nbsp;⋅</div>
 								</a>

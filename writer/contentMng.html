@@ -131,7 +131,7 @@
 									<span><a :href="'../portal/a/'+article.id+'.html'" target="_blank" class="article-link">{{article.title}}</a></span>
 									<span class="counts-wrapper">
 										<!-- TODO: 数字待定，后续做 -->
-										<span>阅读 0 ⋅</span>
+										<span>&nbsp;{{article.readCounts}}阅读&nbsp;⋅</span>
 										<span>评论 0</span>
 									</span>
 									<span class="status-reviewing article-status" v-show="article.articleStatus==1 || article.articleStatus==2">审核中</span>

@@ -86,8 +86,7 @@
             
                                     <div class="single-article">
                                         <div class="article-title">
-                                            <!-- TODO: 后期改为静态页面跳转 -->
-                                            <a :href="'detail.html?articleId='+article.id" target="_blank" class="link-article-title">{{article.title}}</a>
+                                            <a :href="'a/' + article.id + '.html'" target="_blank" class="link-article-title" v-html="article.title"></a>
                                         </div>
                                         <div class="publisher">
                                             <div class="category-tag" :style="{color: getCatTagColor(article.categoryId), borderColor: getCatTagColor(article.categoryId) }">{{getCatName(article.categoryId)}}</div>
@@ -99,7 +98,7 @@
                                             <div class="publisher-name" v-if="article.publisherVO != null && article.publisherVO != undefined">&nbsp;&nbsp;{{article.publisherVO.nickname}}&nbsp;⋅</div>
                                 
                                             
-                                            <div class="article-name">&nbsp;{{article.readCounts}}阅读&nbsp;⋅</div>
+                                            <div class="read-counts">&nbsp;{{article.readCounts}}阅读&nbsp;⋅</div>
                                             
                                             <div class="publish-time">&nbsp;{{formatData(article.publishTime)}}</div>
                                             <!-- <div class="publish-time">&nbsp;{{getDateBeforeNow(article.publishTime)}}</div> -->
@@ -314,7 +313,7 @@
 
                     var articleServerUrl = app.articleServerUrl;
                     axios.defaults.withCredentials = true;
-                    axios.get(articleServerUrl + "/portal/article/queryArticleListOfWriter?writerId=" + writerId +
+                    axios.get(articleServerUrl + "/portal/queryArticleListOfWriter?writerId=" + writerId +
                                                                                             "&page=" + page + 
                                                                                             "&pageSize=" + pageSize)
                     .then(res => {
@@ -348,7 +347,7 @@
 
                     var articleServerUrl = app.articleServerUrl;
                     axios.defaults.withCredentials = true;
-                    axios.get(articleServerUrl + "/portal/article/queryGoodArticleListOfWriter?writerId=" + writerId)
+                    axios.get(articleServerUrl + "/portal/queryGoodArticleListOfWriter?writerId=" + writerId)
                     .then(res => {
                         console.log(JSON.stringify(res.data));
 

@@ -330,8 +330,6 @@
                     axios.defaults.withCredentials = true;
                     axios.get(articleServerUrl + "/portal/detail?articleId=" + articleId)
                     .then(res => {
-                        // console.log(JSON.stringify(res.data));
-
                         if (res.data.code == 200) {
                             var result = res.data.data;
                             me.articleDetail = result;
@@ -431,8 +429,6 @@
                         }
                     )
                     .then(res => {
-                        console.log(JSON.stringify(res.data));
-
                         if (res.data.code == 200) {
                             // 清空评论框中内容
                             $('#summernote').summernote('reset');
@@ -442,8 +438,7 @@
                             me.getAllComments(1, 10);
                             me.getCommentCounts();
                         } else {
-                            // layer.msg(res.data.msg);
-                            layer.msg(JSON.stringify(res.data.data));
+                            layer.msg(res.data.msg);
                         }
                     });
                 },
@@ -465,12 +460,9 @@
                     axios.defaults.withCredentials = true;
                     axios.get(adminServerUrl + "/categoryMng/getCatList")
                     .then(res => {
-                        console.log(JSON.stringify(res.data));
-
                         if (res.data.code == 200) {
                             var catList = res.data.data;
                             me.catList = catList;
-                            // console.log(catList);
                         } else {
                             layer.msg(res.data.msg);
                         }

@@ -135,7 +135,7 @@
 							</div>
 						</div>
 
-						<div class="article-basic-info" v-show="comment.articleCover != null">
+						<div class="article-basic-info" v-show="comment.articleCover != null && comment.articleCover != ''">
 							<img class="cover" :style="'background-image: url(' + comment.articleCover + ')'"/>
 							<div class="every-title">{{comment.articleTitle}}</div>
 						</div>
@@ -232,7 +232,7 @@
 
 				var articleServerUrl = app.articleServerUrl;
 				axios.defaults.withCredentials = true;
-				axios.post(articleServerUrl + "/comment/delete?writerId=" + uid + 
+				axios.delete(articleServerUrl + "/comment/delete?writerId=" + uid + 
 															"&commentId=" + commentId,
 				{}, 
 				{
@@ -261,7 +261,7 @@
 
 				var articleServerUrl = app.articleServerUrl;
 				axios.defaults.withCredentials = true;
-				axios.post(articleServerUrl + "/comment/mng?writerId=" + uid + 
+				axios.get(articleServerUrl + "/comment/mng?writerId=" + uid + 
 															"&page=" + page + 
 															"&pageSize=" + pageSize,
 				{}, 
@@ -276,11 +276,11 @@
 
 					if (res.data.code == 200) {
 						var grid = res.data.data;
-						var commentList = grid.rows;
+						var commentList = grid.records;
 						me.commentList = commentList;
 
-						var maxPage = grid.total; // 获得总页数
-						var total = grid.records; // 获得总记录数
+						var maxPage = grid.pages; // 获得总页数
+						var total = grid.total; // 获得总记录数
 
 						this.maxPage = maxPage;
 						this.total = total;

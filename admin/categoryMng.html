@@ -199,14 +199,7 @@
 				var aid = app.getCookie("aid");
 				var adminServerUrl = app.adminServerUrl;
 				axios.defaults.withCredentials = true;
-				axios.get(adminServerUrl + '/categoryMng/getCatList',
-					{},
-					{
-						headers: {
-							'adminUserId': aid,
-							'adminUserToken': atoken
-						}
-					})
+				axios.get(adminServerUrl + '/categoryMng/getCatList')
 				.then(res => {
 					if (res.data.code == 200) {
 						var catList = res.data.data;

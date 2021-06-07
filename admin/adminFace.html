@@ -54,7 +54,7 @@
 			var faceId = app.getUrlParam("faceId");
 
 			var fsServerUrl = app.fsServerUrl;
-			var requestUrl = fsServerUrl + "/fs/readInGridFS?faceId=" + faceId;
+			var requestUrl = fsServerUrl + "/file/readInGridFS?faceId=" + faceId;
 			axios.defaults.withCredentials = true;
 			axios.get(requestUrl, 
 				{	

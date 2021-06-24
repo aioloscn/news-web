@@ -99,6 +99,48 @@ window.app = {
             return false;
         }
     },
+	
+	// 查询用户信息
+	getUserAccountInfo() {
+		var me = this;
+		var utoken = me.getCookie("utoken");
+		var uid = me.getCookie("uid");
+	
+		if ( me.isEmpty(utoken) || me.isEmpty(uid)) {
+			layer.msg("请登录后再使用媒体中心的相关页面！", {
+				time: 2000,
+			}, function() {
+				window.location = me.writerLoginUrl;
+			});
+				
+			return false;
+		}
+			
+		var serverUrl = me.userServerUrl;
+		axios.post(serverUrl + '/user/getAccountInfo?userId=' + uid, 
+		{}, 
+		{
+			headers: {
+				'headerUserId': uid,
+				'headerUserToken': utoken
+			}
+		})
+		.then(res => {
+			console.log(res.data);
+			
+			if (res.data.code == 200) {
+				
+			} else if (res.data.code == 20000 || res.data.code == 20012) {
+				me.deleteCookie("uid");
+				me.deleteCookie("utoken");
+				layer.msg(res.data.msg, {time: 2000}, function() {
+					window.location = me.writerLoginUrl;
+				});
+			} else {
+				layer.msg(res.data.msg);
+			}
+		});
+	},
 
     logout(pageVue) {
         var me = this;

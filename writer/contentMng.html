@@ -256,6 +256,8 @@
 		created() {
 			// 判断用户登录
 			app.judgeUserLoginStatus(this);
+			
+			app.getUserAccountInfo();
 
 			// 默认查询文章列表
 			this.queryMyArticleList(1, 10, "", "", "", "");

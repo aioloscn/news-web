@@ -305,11 +305,13 @@
 							city: city,
 							district: district
 						});
+					} else if (res.data.code == 20000 || res.data.code == 20012) {
+						me.deleteCookie("uid");
+						me.deleteCookie("utoken");
+						layer.msg(res.data.msg, {time: 2000});
+						window.location = me.writerLoginUrl;
 					} else {
-						app.deleteCookie("uid");
-						app.deleteCookie("utoken");
-						layer.msg(res.data.msg, {time: 1500});
-						window.location = app.writerLoginUrl;
+						layer.msg(res.data.msg)
 					}
 				});
 			},
@@ -411,6 +413,12 @@
 							app.deleteUserInfo();
 							// 刷新页面
 							window.location = window.location;
+						});
+					} else if (res.data.code == 20000 || res.data.code == 20012) {
+						me.deleteCookie("uid");
+						me.deleteCookie("utoken");
+						layer.msg(error.response.data.msg, {time: 2000}, function() {
+							window.location = me.writerLoginUrl;
 						});
 					} else {
 						layer.msg(res.data.msg);

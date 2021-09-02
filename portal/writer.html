@@ -298,7 +298,7 @@
                             if (res.data.code == 200) {
                                 var userInfo = res.data.data;
                                 me.writerInfo = userInfo;
-                                $("#writerTitle").html(userInfo.nickname + "的个人主页 - 慕课新闻");
+                                $("#writerTitle").html(userInfo.nickname + "的个人主页 - 互联网新闻");
                             } else {
                                 console.log(res.data.msg);
                                 // 发生错误，直接return null

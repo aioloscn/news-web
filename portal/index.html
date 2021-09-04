@@ -389,13 +389,13 @@
 			},
 			// 格式化日期
 			formatData(times) {
-				var date = moment(times).format('YYYY-MM-DD hh:mm:ss');
+				var date = moment(times).format('YYYY-MM-DD HH:mm:ss');
 				return date;	
 			},
 			getDateBeforeNow(time) {
 				// var nowTime = new Date();
 				// var day = nowTime.getDate();
-				// var date = moment(nowTime).format('YYYY-MM-DD hh:mm:ss');
+				// var date = moment(nowTime).format('YYYY-MM-DD HH:mm:ss');
 				// console.log("当前时间：" + date);
 
 				var temp = this.formatData(time);

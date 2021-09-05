@@ -249,6 +249,9 @@
 					} else {
 						layer.msg(res.data.msg);
 					}
+				})
+				.catch(error => {
+					layer.msg(error.response.data.msg);
 				});
 				// console.log(me.category);
 			},
@@ -284,7 +287,7 @@
 				}
 
 				if (pendingCat == null) {
-					alert("你的数据有误，请刷新页面或联系管理员！");
+					layer.msg("你的数据有误，请刷新页面或联系管理员！");
 					return false;
 				}
 

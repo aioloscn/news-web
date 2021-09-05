@@ -30,7 +30,7 @@
 
 				<div class="right-me-info">
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
-					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
+					<span class="me-nickname"><template>{{adminUserLogin.adminName}}</template></span>
 					<span class="sep-line">|</span>
 					<span class="logout" @click="doLogout">注销</span>
 				</div>
@@ -118,9 +118,9 @@
 							</tr>
 							
 							<tr class="user-single-line" v-for="(admin, index) in adminList">
-								<td class="table-td-left" style="padding-left: 30px;">{{admin.username}}</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{admin.adminName}}</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{formatData(admin.createdTime)}}</td>
+								<td class="table-td-left" style="padding-left: 30px;"><template>{{admin.username}}</template></td>
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{admin.adminName}}</template></td>
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{formatData(admin.createdTime)}}</template></td>
 								<td class="table-td-right" style="padding-right: 30px;"><a href="javascript:void(0);" @click="showFace(admin.faceId)" target="_blank">查看人脸</a></td>
 							</tr>
 

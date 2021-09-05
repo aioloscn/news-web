@@ -26,7 +26,7 @@
 
 				<div class="right-me-info">
 					<img :src="userInfo.face" class="me-face"/>
-					<span class="me-nickname">{{userInfo.nickname}}</span>
+					<span class="me-nickname"><template>{{userInfo.nickname}}</template></span>
 				</div>
 			</div>
 		</div>
@@ -105,9 +105,9 @@
 						</div>
 
 						<div class="sex-block-wrapper">
-							<div class="sex-all-counts">总粉丝数：{{manCounts + womanCounts}}人</div>
-							<div class="sex-man-counts"><div class="sex-man-block"></div>男性：{{manCounts}}人，占比 {{getPercent(manCounts/(manCounts + womanCounts))}}%</div>
-							<div class="sex-woman-counts"><div class="sex-woman-block"></div>女性：{{womanCounts}}人，占比 {{getPercent(womanCounts/(manCounts + womanCounts))}}%</div>
+							<div class="sex-all-counts">总粉丝数：<template>{{manCounts + womanCounts}}</template>人</div>
+							<div class="sex-man-counts"><div class="sex-man-block"></div>男性：<template>{{manCounts}}</template>人，占比 <template>{{getPercent(manCounts/(manCounts + womanCounts))}}</template>%</div>
+							<div class="sex-woman-counts"><div class="sex-woman-block"></div>女性：<template>{{womanCounts}}</template>人，占比 <template>{{getPercent(womanCounts/(manCounts + womanCounts))}}</template>%</div>
 						</div>
 					</div>
 					<!-- 男女比例柱状图 -->

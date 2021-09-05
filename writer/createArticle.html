@@ -26,7 +26,7 @@
 
 				<div class="right-me-info">
 					<img :src="userInfo.face" class="me-face"/>
-					<span class="me-nickname">{{userInfo.nickname}}</span>
+					<span class="me-nickname"><template>{{userInfo.nickname}}</template></span>
 				</div>
 			</div>	
 		</div>
@@ -54,7 +54,7 @@
 						</select> -->
 
 						<select v-model="articleCategory">
-							<option :value="cat.id" v-for="(cat, index) in catList" v-key="index">{{cat.name}}</option>
+							<option :value="cat.id" v-for="(cat, index) in catList" v-key="index"><template>{{cat.name}}</template></option>
 						</select>
 						
 					</div>
@@ -86,7 +86,7 @@
 					<button class="white-btn" type="button" @click="preview">预览</button>
 					<!-- <button class="white-btn" type="button" @click="save">保存草稿</button> -->
 					<!-- FIXME: 计算剩余时间，使用RMQ延时队列，或分布式定时任务 -->
-					<button class="white-btn" type="button" @click="doTiming">{{appointWords}}</button>
+					<button class="white-btn" type="button" @click="doTiming"><template>{{appointWords}}</template></button>
 					
 					<input type="text" class="timing-date-picker" placeholder="定时日期" id="choose-date" v-show="isAppoint==1" readonly>
 

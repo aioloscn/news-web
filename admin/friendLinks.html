@@ -27,7 +27,7 @@
 
 				<div class="right-me-info">
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
-					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
+					<span class="me-nickname"><template>{{adminUserLogin.adminName}}</template></span>
 					<span class="sep-line">|</span>
 					<span class="logout" @click="doLogout">注销</span>
 				</div>
@@ -99,12 +99,12 @@
 							</tr>
 							
 							<tr class="user-single-line" v-for="(link, linkIndex) in  friendLinkList" :key="linkIndex">
-								<td class="table-td-left" style="padding-left: 30px;">{{link.linkName}}</td>
+								<td class="table-td-left" style="padding-left: 30px;"><template>{{link.linkName}}</template></td>
 								<td class="table-td-right" style="padding-right: 10px;">
-									<a :href="link.linkUrl" target="_blank">{{link.linkUrl}}</a>
+									<a :href="link.linkUrl" target="_blank"><template>{{link.linkUrl}}</template></a>
 								</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{link.isDelete == 0 ? '保留' : '删除'}}</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{formatData(link.updateTime)}}</td>
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{link.isDelete == 0 ? '保留' : '删除'}}</template></td>
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{formatData(link.updateTime)}}</template></td>
 								<td class="table-td-right" style="padding-right: 30px;">
 									<a href="javascript:(0);" @click="modifyFriendLink(link.id)">修改</a>
 									&nbsp;&nbsp;

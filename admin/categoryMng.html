@@ -28,7 +28,7 @@
 
 				<div class="right-me-info">
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
-					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
+					<span class="me-nickname"><template>{{adminUserLogin.adminName}}</template></span>
 					<span class="sep-line">|</span>
 					<span class="logout" @click="doLogout">注销</span>
 				</div>
@@ -101,13 +101,13 @@
 							</tr>
 							
 							<tr class="user-single-line" v-for="(cat, index) in catList" :key="index">
-								<td class="table-td-left" style="padding-left: 30px;">{{cat.name}}</td>
+								<td class="table-td-left" style="padding-left: 30px;"><template>{{cat.name}}</template></td>
 								<td class="table-td-left" style="padding-right: 10px;">
-									<div :style="[tagStyle, {color: cat.tagColor}]">{{cat.name}}</div>
-									<!-- <div :style="width:24px; font-size: 10px; color: #539464;padding: 1px 5px;border: 1px solid #539464;">{{cat.name}}</div> -->
+									<div :style="[tagStyle, {color: cat.tagColor}]"><template>{{cat.name}}</template></div>
+									<!-- <div :style="width:24px; font-size: 10px; color: #539464;padding: 1px 5px;border: 1px solid #539464;"><template>{{cat.name}}</template></div> -->
 								</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{cat.tagColor}}</td>
-								<!-- <td class="table-td-right" style="padding-right: 10px;">{{cat.isShow == 1 ? '显示' : '不显示'}}</td> -->
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{cat.tagColor}}</template></td>
+								<!-- <td class="table-td-right" style="padding-right: 10px;"><template>{{cat.isShow == 1 ? '显示' : '不显示'}}</template></td> -->
 								<td class="table-td-right" style="padding-right: 30px;"><a href="javascript:(0);" @click="modifyCategory(cat.id)">修改</a></td>
 							</tr>
 

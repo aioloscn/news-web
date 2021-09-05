@@ -30,7 +30,7 @@
 
 				<div class="right-me-info">
 					<img :src="userInfo.face" class="me-face"/>
-					<span class="me-nickname">{{userInfo.nickname}}</span>
+					<span class="me-nickname"><template>{{userInfo.nickname}}</template></span>
 				</div>
 			</div>
 		</div>
@@ -128,10 +128,10 @@
 
 							<div class="main-content">
 								<div class="basic-info">
-									<span><a :href="'../portal/a/'+article.id+'.html'" target="_blank" class="article-link">{{article.title}}</a></span>
+									<span><a :href="'../portal/a/'+article.id+'.html'" target="_blank" class="article-link"><template>{{article.title}}</template></a></span>
 									<span class="counts-wrapper">
 										<!-- TODO: 数字待定，后续做 -->
-										<span>&nbsp;{{article.readCounts}}阅读&nbsp;⋅</span>
+										<span>&nbsp;<template>{{article.readCounts}}</template>阅读&nbsp;⋅</span>
 										<span>评论 0</span>
 									</span>
 									<span class="status-reviewing article-status" v-show="article.articleStatus==1 || article.articleStatus==2">审核中</span>
@@ -140,7 +140,7 @@
 									<span class="status-back article-status" v-show="article.articleStatus==5">已撤回</span>
 									<span class="publish-time">
 										<span v-show="article.isAppoint==1">预计发布时间：</span>
-										{{formatData(article.publishTime)}}
+										<template>{{formatData(article.publishTime)}}</template>
 									</span>
 								</div>
 								<div class="operation">

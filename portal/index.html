@@ -42,7 +42,7 @@
 						<!-- single-selected -->
 						<div class="single-default" v-bind:class="{'single-selected': (cat.id==selectedCatId)}" v-for="(cat, index) in catList" v-key="index">
 							<!-- menu-selected -->
-							<a href="javascript:void(0);" class="white-header-left" v-bind:class="{'menu-selected': (cat.id==selectedCatId)}" @click="queryByCategory(cat.id)">{{cat.name}}</a>
+							<a href="javascript:void(0);" class="white-header-left" v-bind:class="{'menu-selected': (cat.id==selectedCatId)}" @click="queryByCategory(cat.id)"><template>{{cat.name}}</template></a>
 						</div>
 					</div>
 				</div>
@@ -71,19 +71,19 @@
 								<a :href="'a/'+article.id+'.html'" target="_blank" class="link-article-title" v-html="article.title"></a>
 							</div>
 							<div class="publisher">
-								<div class="category-tag" :style="{color: getCatTagColor(article.categoryId), borderColor: getCatTagColor(article.categoryId) }">{{getCatName(article.categoryId)}}</div>
+								<div class="category-tag" :style="{color: getCatTagColor(article.categoryId), borderColor: getCatTagColor(article.categoryId) }"><template>{{getCatName(article.categoryId)}}</template></div>
 								<img src="img/face1.png" class="publisher-face" v-if="article.publisherVO == null || article.publisherVO == undefined">
-								<div class="publisher-name" v-if="article.publisherVO == null || article.publisherVO == undefined">&nbsp;&nbsp;{{article.publishUserId}}&nbsp;⋅</div>
+								<div class="publisher-name" v-if="article.publisherVO == null || article.publisherVO == undefined">&nbsp;&nbsp;<template>{{article.publishUserId}}</template>&nbsp;⋅</div>
 									
 								<img :src="article.publisherVO.face" class="publisher-face" v-if="article.publisherVO != null && article.publisherVO != undefined">
 								<a :href="'writer.html?writerId='+article.publisherVO.id" target="_blank">
-									<div class="publisher-name" v-if="article.publisherVO != null && article.publisherVO != undefined">&nbsp;&nbsp;{{article.publisherVO.nickname}}&nbsp;⋅</div>
+									<div class="publisher-name" v-if="article.publisherVO != null && article.publisherVO != undefined">&nbsp;&nbsp;<template>{{article.publisherVO.nickname}}</template>&nbsp;⋅</div>
 								</a>
 
-								<div class="article-name">&nbsp;{{article.readCounts}}阅读&nbsp;⋅</div>
+								<div class="article-name">&nbsp;<template>{{article.readCounts}}</template>阅读&nbsp;⋅</div>
 								
-								<!-- <div class="publish-time">&nbsp;{{formatData(article.publishTime)}}</div> -->
-								<div class="publish-time">&nbsp;{{getDateBeforeNow(article.publishTime)}}</div>
+								<!-- <div class="publish-time">&nbsp;<template>{{formatData(article.publishTime)}}</template></div> -->
+								<div class="publish-time">&nbsp;<template>{{getDateBeforeNow(article.publishTime)}}</template></div>
 							</div>
 						</div>
 					</li>
@@ -120,18 +120,18 @@
 								</a>
 							</div>
 		
-							<div class="writer">{{userInfo.nickname}}</div>
+							<div class="writer"><template>{{userInfo.nickname}}</template></div>
 		
 							<div class="fans-info">
 								<div class="my-subscribe">
-									<div class="fans-info-num item-center">{{userInfo.myFollowCounts == null ? 0 : userInfo.myFollowCounts}}</div>
+									<div class="fans-info-num item-center"><template>{{userInfo.myFollowCounts == null ? 0 : userInfo.myFollowCounts}}</template></div>
 									<div class="fans-info-word item-center">关注</div>
 								</div>
 		
 								<div class="middle-line"></div>
 		
 								<div class="my-fans">
-									<div class="fans-info-num item-center">{{userInfo.myFansCounts == null ? 0 : userInfo.myFansCounts}}</div>
+									<div class="fans-info-num item-center"><template>{{userInfo.myFansCounts == null ? 0 : userInfo.myFansCounts}}</template></div>
 									<div class="fans-info-word item-center">粉丝</div>
 								</div>
 							</div>
@@ -155,7 +155,7 @@
 						</div>
 						<div>
 							<a :href="'a/'+hotArticle.id+'.html'" class="link-hot-title-words" target="_blank">
-								{{hotArticle.title}}
+								<template>{{hotArticle.title}}</template>
 							</a>
 						</div>
 					</div>
@@ -166,7 +166,7 @@
 				<div id="friendLinks" class="friend-links">
 					<div class="friend-title">友情链接</div>
 	
-					<a :href="link.linkUrl" target="_blank" class="friend-link-item" v-for="(link, lindex) in friendLinkList" :key="lindex">{{link.linkName}}</a>
+					<a :href="link.linkUrl" target="_blank" class="friend-link-item" v-for="(link, lindex) in friendLinkList" :key="lindex"><template>{{link.linkName}}</template></a>
 				</div>
 	
 				<!-- 备案信息 -->

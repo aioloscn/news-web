@@ -22,7 +22,7 @@
         <div id="detailContainer" class="container">
 
             <div class="big-title">
-                {{article.title}}
+                <template>{{article.title}}</template>
             </div>
 
             <div class="detail-really">
@@ -31,16 +31,16 @@
                 <div class="left-social">
 
                     <div class="date-title">
-                        <span class="year">{{year}}</span>
+                        <span class="year"><template>{{year}}</template></span>
                     </div>
                     <div class="back-year-line"></div>
 
                     <div class="date-md">
-                        {{monthDay}}
+                        <template>{{monthDay}}</template>
                     </div>
 
                     <div class="date-times">
-                        {{time}}
+                        <template>{{time}}</template>
                     </div>
 
                 </div>

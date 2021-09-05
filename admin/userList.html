@@ -30,7 +30,7 @@
 
 				<div class="right-me-info">
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
-					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
+					<span class="me-nickname"><template>{{adminUserLogin.adminName}}</template></span>
 					<span class="sep-line">|</span>
 					<span class="logout" @click="doLogout">注销</span>
 				</div>
@@ -104,12 +104,12 @@
 							</tr>
 							
 							<tr class="user-single-line" v-for="(user, index) in userList">
-								<td class="table-td-left" style="padding-left: 10px;">{{user.id}}</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{user.nickname}}</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{user.mobile}}</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{user.email}}</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{getStatus(user.activeStatus)}}</td>
-								<td class="table-td-right" style="padding-right: 10px;">{{formatData(user.createdTime)}}</td>
+								<td class="table-td-left" style="padding-left: 10px;"><template>{{user.id}}</template></td>
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{user.nickname}}</template></td>
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{user.mobile}}</template></td>
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{user.email}}</template></td>
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{getStatus(user.activeStatus)}}</template></td>
+								<td class="table-td-right" style="padding-right: 10px;"><template>{{formatData(user.createdTime)}}</template></td>
 								<td class="table-td-right" style="padding-right: 10px;"><a :href="'userInfo.html?userId=' + user.id" target="_blank">查看</a></td>
 							</tr>
 

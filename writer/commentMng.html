@@ -30,7 +30,7 @@
 
 				<div class="right-me-info">
 					<img :src="userInfo.face" class="me-face"/>
-					<span class="me-nickname">{{userInfo.nickname}}</span>
+					<span class="me-nickname"><template>{{userInfo.nickname}}</template></span>
 				</div>
 			</div>
 		</div>
@@ -124,8 +124,8 @@
 							
 							<div class="basic-wrapper">
 								<div class="user-time">
-									<div>{{comment.commentUserNickname}}</div>
-									<div class="publish-time">{{formatData(comment.createTime)}}</div>
+									<div><template>{{comment.commentUserNickname}}</template></div>
+									<div class="publish-time"><template>{{formatData(comment.createTime)}}</template></div>
 								</div>
 								<div class="comment-content" v-html="comment.content">
 								</div>
@@ -138,7 +138,7 @@
 
 						<div class="article-basic-info" v-show="comment.articleCover != null && comment.articleCover != ''">
 							<img class="cover" :style="'background-image: url(' + comment.articleCover + ')'"/>
-							<div class="every-title">{{comment.articleTitle}}</div>
+							<div class="every-title"><template>{{comment.articleTitle}}</template></div>
 						</div>
 						<!-- <div class="article-basic-info-null" v-show="comment.articleCover == null"></div> -->
 					</div>

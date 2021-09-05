@@ -28,7 +28,7 @@
 
 				<div class="right-me-info">
 					<img :src="userInfo.face" class="me-face"/>
-					<span class="me-nickname">{{userInfo.nickname}}</span>
+					<span class="me-nickname"><template>{{userInfo.nickname}}</template></span>
 				</div>
 			</div>
 		</div>
@@ -156,7 +156,7 @@
 						</div>
 						<div class="every-line">
 							<div class="pre-label">所在城市</div>
-							<!-- <div class="info-words" v-if="userInfo.activeStatus == 1">{{userAccountInfo.province}}/{{userAccountInfo.city}}/{{userAccountInfo.district}}</div> -->
+							<!-- <div class="info-words" v-if="userInfo.activeStatus == 1"><template>{{userAccountInfo.province}}</template>/<template>{{userAccountInfo.city}}</template>/<template>{{userAccountInfo.district}}</template></div> -->
 							<div style="position: relative;"><!-- container --> 
 								<!-- data-toggle="city-picker"  -->
 								<input id="city-picker" name="city" readonly type="text" class="pick-city">
@@ -164,7 +164,7 @@
 						</div>
 						<div class="every-line">
 							<div class="pre-label">注册手机</div>
-							<div class="info-words">{{userAccountInfo.mobile}}</div>
+							<div class="info-words"><template>{{userAccountInfo.mobile}}</template></div>
 						</div>
 						<div class="every-line">
 							<div class="pre-label">联系邮箱</div>

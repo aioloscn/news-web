@@ -30,7 +30,7 @@
 
 				<div class="right-me-info">
 					<img :src="userInfo.face" class="me-face"/>
-					<span class="me-nickname">{{userInfo.nickname}}</span>
+					<span class="me-nickname"><template>{{userInfo.nickname}}</template></span>
 				</div>
 			</div>
 		</div>
@@ -104,7 +104,7 @@
 							@click="forceUpdateFanInfo(fan.id, fan.fanId)">
 							<img :src="fan.face" class="fan-face"/>
 						</a>
-						<div class="fan-nickname">{{fan.fanNickname}}</div>
+						<div class="fan-nickname"><template>{{fan.fanNickname}}</template></div>
 					</div>
 
 				</div>

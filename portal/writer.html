@@ -17,7 +17,7 @@
 	<link rel="shortcut icon" href="img/mu-toutiao.ico" />
 	<link rel="stylesheet" href="../layui/layer.css" />
 
-	<title id="writerTitle">{{writerInfo.nickname}}的个人主页</title>
+	<title id="writerTitle"><template>{{writerInfo.nickname}}</template>的个人主页</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
                         <!-- single-selected -->
                         <div class="single-default" v-bind:class="{'single-selected': (cat.id==selectedCatId)}" v-for="(cat, index) in catList" v-key="index">
                             <!-- menu-selected -->
-                            <a :href="'index.html?catId='+cat.id" class="white-header-left" v-bind:class="{'menu-selected': (cat.id==selectedCatId)}">{{cat.name}}</a>
+                            <a :href="'index.html?catId='+cat.id" class="white-header-left" v-bind:class="{'menu-selected': (cat.id==selectedCatId)}"><template>{{cat.name}}</template></a>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <div class="writer-face-wrapper">
                         <img :src="writerInfo.face" class="writer-face"/>
                     </div>
-                    <div class="writer-name">{{writerInfo.nickname}}</div>
+                    <div class="writer-name"><template>{{writerInfo.nickname}}</template></div>
                     <button class="pay-attention" @click="beYourFan(writerInfo.id, userInfo.id)" 
                             v-show="!isFollowWriter && userInfo != null && userInfo != undefined && userInfo != writerInfo">关注</button>
                     <button class="already-pay-attention" @click="notYourFan(writerInfo.id, userInfo.id)" 
@@ -89,19 +89,19 @@
                                             <a :href="'a/' + article.id + '.html'" target="_blank" class="link-article-title" v-html="article.title"></a>
                                         </div>
                                         <div class="publisher">
-                                            <div class="category-tag" :style="{color: getCatTagColor(article.categoryId), borderColor: getCatTagColor(article.categoryId) }">{{getCatName(article.categoryId)}}</div>
+                                            <div class="category-tag" :style="{color: getCatTagColor(article.categoryId), borderColor: getCatTagColor(article.categoryId) }"><template>{{getCatName(article.categoryId)}}</template></div>
                                             
                                             <img src="img/face1.png" class="publisher-face" v-if="article.publisherVO == null || article.publisherVO == undefined">
-                                            <div class="publisher-name" v-if="article.publisherVO == null || article.publisherVO == undefined">&nbsp;&nbsp;{{article.publishUserId}}&nbsp;⋅</div>
+                                            <div class="publisher-name" v-if="article.publisherVO == null || article.publisherVO == undefined">&nbsp;&nbsp;<template>{{article.publishUserId}}</template>&nbsp;⋅</div>
                                             
                                             <img :src="article.publisherVO.face" class="publisher-face" v-if="article.publisherVO != null && article.publisherVO != undefined">
-                                            <div class="publisher-name" v-if="article.publisherVO != null && article.publisherVO != undefined">&nbsp;&nbsp;{{article.publisherVO.nickname}}&nbsp;⋅</div>
+                                            <div class="publisher-name" v-if="article.publisherVO != null && article.publisherVO != undefined">&nbsp;&nbsp;<template>{{article.publisherVO.nickname}}</template>&nbsp;⋅</div>
                                 
                                             
-                                            <div class="read-counts">&nbsp;{{article.readCounts}}阅读&nbsp;⋅</div>
+                                            <div class="read-counts">&nbsp;<template>{{article.readCounts}}</template>阅读&nbsp;⋅</div>
                                             
-                                            <div class="publish-time">&nbsp;{{formatData(article.publishTime)}}</div>
-                                            <!-- <div class="publish-time">&nbsp;{{getDateBeforeNow(article.publishTime)}}</div> -->
+                                            <div class="publish-time">&nbsp;<template>{{formatData(article.publishTime)}}</template></div>
+                                            <!-- <div class="publish-time">&nbsp;<template>{{getDateBeforeNow(article.publishTime)}}</template></div> -->
                                         </div>
                                     </div>
                                 </li>
@@ -123,12 +123,12 @@
                     <div class="counts-wrapper">
                         <div class="padd">
                             <div class="inner-flex sign">
-                                <span class="counts-words">{{writerInfo.myFollowCounts == null ? 0 : writerInfo.myFollowCounts}}</span>
+                                <span class="counts-words"><template>{{writerInfo.myFollowCounts == null ? 0 : writerInfo.myFollowCounts}}</template></span>
                                 <span class="counts-cn-words">关注</span>
                             </div>
                             <div class="middle-line"></div>
                             <div class="inner-flex">
-                                <span class="counts-words">{{writerInfo.myFansCounts == null ? 0 : writerInfo.myFansCounts}}</span>
+                                <span class="counts-words"><template>{{writerInfo.myFansCounts == null ? 0 : writerInfo.myFansCounts}}</template></span>
                                 <span class="counts-cn-words">粉丝</span>
                             </div>
                         </div>
@@ -145,8 +145,8 @@
                                         <img :src="article.articleCover" class="recent-article-cover">
                                     </div>
                                     <div class="recent-article-title">
-                                        <div class="recent-title">{{article.title}}</div>
-                                        <div class="read-counts">{{article.readCounts}}阅读</div>
+                                        <div class="recent-title"><template>{{article.title}}</template></div>
+                                        <div class="read-counts"><template>{{article.readCounts}}</template>阅读</div>
                                     </div>
                                 </div>
 

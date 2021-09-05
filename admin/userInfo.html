@@ -28,7 +28,7 @@
 
 				<div class="right-me-info">
 					<!-- <img src="./img/face1.png" class="me-face"/> -->
-					<span class="me-nickname">{{adminUserLogin.adminName}}</span>
+					<span class="me-nickname"><template>{{adminUserLogin.adminName}}</template></span>
 					<span class="sep-line">|</span>
 					<span class="logout" @click="doLogout">注销</span>
 				</div>
@@ -70,7 +70,7 @@
 					<div class="middle-wrapper">
 						<div class="every-line">
 							<div class="pre-label">媒体号昵称</div>
-							<div class="info-words">{{userInfo.nickname}}</div>
+							<div class="info-words"><template>{{userInfo.nickname}}</template></div>
 						</div>
 						<div class="every-line">
 							<div class="pre-label">媒体号头像</div>
@@ -82,31 +82,31 @@
 						</div>
 						<div class="every-line">
 							<div class="pre-label">真实姓名</div>
-							<div class="info-words">{{userInfo.realname}}</div>
+							<div class="info-words"><template>{{userInfo.realname}}</template></div>
 						</div>
 						<div class="every-line">
 							<div class="pre-label">所在城市</div>
-							<div class="info-words">{{userInfo.province}}&nbsp;{{userInfo.city}}&nbsp;{{userInfo.district}}</div>
+							<div class="info-words"><template>{{userInfo.province}}</template>&nbsp;<template>{{userInfo.city}}</template>&nbsp;<template>{{userInfo.district}}</template></div>
 						</div>
 						<div class="every-line">
 							<div class="pre-label">生日</div>
-							<div class="info-words">{{formatData(userInfo.birthday)}}</div>
+							<div class="info-words"><template>{{formatData(userInfo.birthday)}}</template></div>
 						</div>
 						<div class="every-line">
 							<div class="pre-label">性别</div>
-							<div class="info-words">{{userInfo.sex == 1 ? '男' : '女'}}</div>
+							<div class="info-words"><template>{{userInfo.sex == 1 ? '男' : '女'}}</template></div>
 						</div>
 						<div class="every-line">
 							<div class="pre-label">注册手机</div>
-							<div class="info-words">{{userInfo.mobile}}</div>
+							<div class="info-words"><template>{{userInfo.mobile}}</template></div>
 						</div>
 						<div class="every-line">
 							<div class="pre-label">联系邮箱</div>
-							<div class="info-words">{{userInfo.email}}</div>
+							<div class="info-words"><template>{{userInfo.email}}</template></div>
 						</div>
 						<div class="every-line">
 							<div class="pre-label">账号状态</div>
-							<div class="info-words">{{getStatus(userInfo.activeStatus)}}</div>
+							<div class="info-words"><template>{{getStatus(userInfo.activeStatus)}}</template></div>
 						</div>
 					</div>
 					<div class="submit-wrapper">

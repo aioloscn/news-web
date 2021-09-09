@@ -206,7 +206,7 @@
 			hotArticleList: [],
 
 			page: 1, // 分页页数
-			pageSize: 15, // 分页每页显示数量
+			pageSize: 30, // 分页每页显示数量
 			maxPage: 1, // 总页数
 			total: 1, // 总记录数
 		},
@@ -223,7 +223,7 @@
 			me.selectedCatId = selectedCatId;
 
 			this.getAllCategory();
-			this.getAllArticleList(1, 15, "", selectedCatId, true);
+			this.getAllArticleList(1, me.pageSize, "", selectedCatId, true);
 			this.getFriendLinkList();
 			this.getHotArticleList();
 			
@@ -261,7 +261,7 @@
 					return false;
 				}
 				page ++;
-				me.getAllArticleList(page, 15, keyword, catId, false);
+				me.getAllArticleList(page, me.pageSize, keyword, catId, false);
 			},
 			// 根据关键字搜索文章
 			searchArticle() {
@@ -269,7 +269,7 @@
 				var keyword = me.keyword;
 				me.selectedCatId = "";
 
-				me.getAllArticleList(1, 15, keyword, "", true);
+				me.getAllArticleList(1, me.pageSize, keyword, "", true);
 			},
 			// 根据分类Id获得tag颜色
 			getCatTagColor(catId) {
@@ -354,7 +354,7 @@
 				me.selectedCatId = catId;
 				me.keyword = "";
 
-				me.getAllArticleList(1, 15, "", catId, true);
+				me.getAllArticleList(1, me.pageSize, "", catId, true);
 			},
 			// 获得所有文章领域
 			getAllCategory() {

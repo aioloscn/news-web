@@ -20,6 +20,16 @@
 	
 
 	<style type="text/css">
+	    .goTop >img{
+	        width: 50px;
+	        height: 50px;
+	        cursor: pointer;
+	    }
+	    .goTop{
+	        position: fixed;
+	        right : 20px;
+	        bottom : 20px;
+	    }
 	</style>
 
 	<link rel="shortcut icon" href="img/toutiao.ico" />
@@ -180,9 +190,12 @@
 	</div>
 </body>
 
+<div class="goTop" id="js-go_top"><img src="img/icon_top.png" alt="回到顶部图片"></div>
+
 <script src="libs/vue.min.js"></script>
 <script src="libs/axios.min.js"></script>
 <script src="libs/jquery-1.7.2.min.js"></script>
+<script src="js/GoToTop.js"></script>
 <script src="js/app.js"></script>
 <script src="libs/moment-with-locales.min.js"></script>
 <script src="../layui/layer.js"></script>
@@ -328,6 +341,9 @@
 					} else {
 						layer.msg(res.data.msg);
 					}
+				})
+				.catch(error => {
+					layer.msg(error.response.data.msg)
 				});
 			},
 			// 查询首页友情链接
@@ -412,19 +428,37 @@
 
 </script>
 <script type="text/javascript">
-		
-	$(window).scroll(
-		function() {
-			// scrollTop为滚动条在Y轴上的滚动距离。
-			// clientHeight为内容可视区域的高度。
-			// scrollHeight为内容可视区域的高度加上溢出（滚动）的距离。
-			var scrollTop = $(this).scrollTop();
-			var scrollHeight = $(document).height();
-			var windowHeight = $(this).height();
-			if (scrollTop + windowHeight > (scrollHeight - 50) ) {
-			// 此处是滚动条到底部时候触发的事件，在这里写要加载的数据，或者是拉动滚动条的操作
+	
+	var totalHeight = $(document).height();	// 整个文档高度
+	var visibleHeight = $(window).height();	// 浏览器可视窗口高度
+	var thisBodyHeight = $(document.body).height();	// 浏览器当前窗口文档body的高度
+	var totalBodyHeight = $(document.body).outerHeight(true);	// 浏览器当前窗口文档body的总高度，包括border padding margin
+	var thisWidth = $(window).width();	// 浏览器当前窗口可视区域宽度
+	var thisDocumentWidth = $(document).width();	// 浏览器当前窗口文档对象的宽度
+	var thisBodyWidth = $(document.body).width();	// 浏览器当前窗口文档body的宽度
+	var totalBodyWidth = $(document.body).outerWidth(true);	// 浏览器当前窗口文档body的总宽度，包括border padding margin
+	var scrollTop = $(window).scrollTop();	// 浏览器可视窗口顶端距离网页顶端的高度（垂直偏移）
+	// 添加滚动事件
+	$(window).scroll(function() {
+		scrollTop = $(window).scrollTop();
+		totalHeight = $(document).height();
+		if (scrollTop + visibleHeight + 200 > totalHeight) {
 			index.renderByScroll();
 		}
+	});
+	
+	$('#js-go_top').gotoTop({
+	    offset : 600, //距离顶部的位置
+	    speed : 300, //移动到顶部的速度
+	    /*     iconSpeed : 300, //icon动画样式的速度*/
+	    animationShow : {
+	        'transform' : 'translate(0,0)',
+	        'transition': 'transform .5s ease-in-out'
+	    }, //icon动画样式显示时
+	    animationHide : {
+	        'transform' : 'translate(80px,0)',
+	        'transition': 'transform .5s ease-in-out'
+	    } //icon动画样式隐藏时
 	});
 	
 	document.onkeydown = function(event) {
@@ -434,6 +468,13 @@
 			$(".search-btn").click();
 		}
 	}
+	
+	$('#js-go_top').mouseenter(function() {
+		$(this).children('img').attr('src', 'img/icon_top_fill.png')
+	})
+	$('#js-go_top').mouseleave(function() {
+		$(this).children('img').attr('src', 'img/icon_top.png')
+	})
 
 </script>
 

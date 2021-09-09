@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/center.css">
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/contentMng.css">
+	<link rel="stylesheet" href="../layui/layer.css">
 
 	<!-- 分页css -->
 	<link href="libs/vuePaging/VuePaging/zpageNav.css" rel="stylesheet" />
@@ -145,6 +146,7 @@
 <script src="libs/vuePaging/VuePaging/zpageNav.js"></script>
 <script src="js/app.js"></script>
 <script src="libs/moment-with-locales.min.js"></script>
+<script src="../layui/layer.js"></script>
 
 <script type="text/javascript">
 
@@ -210,7 +212,7 @@
 					if (res.data.code == 200) {
 						me.queryAllArticleList(me.page, me.pageSize, me.articleStatusType);
 					} else {
-						alert(res.data.msg);
+						layer.msg(res.data.msg);
 					}
 				});
 			},
@@ -275,7 +277,7 @@
 						this.maxPage = maxPage;
 						this.total = total;
 					} else {
-						alert(res.data.msg);
+						layer.msg(res.data.msg);
 					}
 				});
 			},

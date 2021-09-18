@@ -37,6 +37,11 @@
     align-self: center;
 }
 
+.right-part-content {
+	width: 270px;
+	overflow-x: auto;
+}
+
 .logo-wrapper {
     display: flex;
     flex-direction: row;
@@ -53,6 +58,8 @@
 }
 
 .menus {
+	width: 80%;
+	overflow-x: auto;
     margin-left: 20px;
     height: 55px;
     line-height: 55px;
@@ -62,7 +69,9 @@
 }
 
 .single-default {
+	width: 58px;
     height: 50px;
+	text-align: center;
 }
 
 .single-selected {
@@ -80,7 +89,7 @@
 .white-header-left {
     font-size: 17px;
     color: #222;
-    padding: 0 10px;
+	padding: 0 10px;
     /* border-right: 1px solid #3a3a3a; */
     text-decoration: none;
     
@@ -97,7 +106,7 @@
 
 .white-header-left-end {
     color: #222;
-    padding: 0 10px;
+	padding: 0 10px;
     text-decoration: none;
     font-weight: bold;
 }

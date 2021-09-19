@@ -269,7 +269,7 @@
 				console.log("renderByScroll");
 				// debugger;
 				var page = me.page;
-				if (page == me.maxPage) {
+				if (me.maxPage == 0 || page >= me.maxPage) {
 					// 分页和总页数匹配，则不分页
 					return false;
 				}

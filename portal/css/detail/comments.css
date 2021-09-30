@@ -25,7 +25,7 @@
 
 .comments-warn {
     height: 100%;
-    color: #ccc;
+    color: #99a2aa;
     font-size: 13px;
     line-height: 48px;
 }
@@ -70,6 +70,11 @@
     border-bottom: 1px solid #e9e8e8;
 }
 
+.sub-comments-list {
+	display: flex;
+	flex-direction: row;
+}
+
 .all-comments-wrapper {
     margin-top: 10px;
     padding-bottom: 10px;
@@ -82,13 +87,19 @@
 }
 
 .user-face {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
 }
 
+.reply-user-face {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
 .comment-info-wrapper {
-    margin-left: 20px;
+    margin-left: 14px;
 }
 
 .publish-info {
@@ -98,24 +109,40 @@
 
 .publish-date {
     margin-left: 10px;
-    color: #ccc;
+    color: #99a2aa;
+}
+
+.reply-date {
+	margin: 6px 10px 0 0;
+	color: #99a2aa;
 }
 
 .publish-content {
     margin-top: 8px;
 }
 
+.quote-content-wrapper {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+}
+
+.quote-content-bottom {
+	display: flex;
+	flex-direction: row;
+}
+
 .reply-wrapper {
     margin-top: 8px;
     display: flex;
     flex-direction: row;
-    cursor: pointer;
-    width: 60px;
+	cursor: pointer;
+	width: 60px;
 }
 
 .reply-words {
     margin-left: 6px;
-    color: #bfbfbf;
+    color: #99a2aa;
     font-size: 12px;
 }
 
@@ -163,16 +190,15 @@
 
 .quote-wrapper {
     margin-top: 10px;
-    margin-left: 20px;
     width: 580px;
     /* height: 50px; */
     padding: 15px 15px;
-    background-color: #fef3f4;
+    background-color: #f7f8fa;
 }
 .blank-wrapper {
     width: 580px;
     background-color: #ffffff;
 }
 .quote-content {
-    margin-bottom: 10px;
+    margin: 8px 10px 0 0;
 }

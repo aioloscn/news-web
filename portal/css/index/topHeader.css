@@ -29,12 +29,14 @@
 .left-part {
     display: flex;
     flex-direction: row;
-
+	max-width: 64%;
     align-self: center;
 }
 
 .right-part {
     align-self: center;
+	width: 220px;
+	padding-right: 10px;
 }
 
 .right-part-content {
@@ -58,14 +60,17 @@
 }
 
 .menus {
-	width: 80%;
+	position: relative;
 	overflow-x: auto;
-    margin-left: 20px;
     height: 55px;
     line-height: 55px;
-
     display: flex;
     flex-direction: row;
+	white-space: nowrap;
+}
+
+.menus::-webkit-scrollbar {
+	display: none;
 }
 
 .single-default {
@@ -115,6 +120,8 @@
     color: #222;
     /* border-left: 1px solid #3a3a3a; */
     text-decoration: none;
+	float: right;
+	margin-left: 10px;
 }
 
 .white-header-right:hover {
@@ -124,6 +131,7 @@
 .white-header-right-start {
     color: #222;
     text-decoration: none;
+	float: right;
 }
 
 .white-header-right-start:hover {
